@@ -1,2 +1,14 @@
-<!--pages/interface/chat/chat.wxml-->
-<text>pages/interface/chat/chat.wxml</text>
+ <view class="chat">
+  <view class="content-box">
+
+  </view>
+  <view class="input-box">
+    <view class="send-msg-box">
+      <view hidden="{{useKeyBoard}}" class="voice-input">12</view>
+      <view hidden="{{!useKeyBoard}}" class="word-input">123</view>
+      <image></image>
+      <view class='send-button'>发送</view>
+    </view>
+    <view class='send-more-box'></view>
+  </view>
+</view>
