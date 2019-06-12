@@ -1,66 +1,63 @@
-// pages/interface/chat/chat.js
+//index.js
+//获取应用实例
+const app = getApp()
+import {getInputValue} from '../../../utils/commonUtil.js'
+import AuthorizeUtil from '../../../utils/authorize.js';
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    useKeyBoard:true
+    onRecord: true,
+    sendMoreMsg: false,
+    recordingClass: 'test',
+    keyboardInputValue: ''
+  },
+  swithInputType: function () {
+    this.setData({
+      onRecord: !this.data.onRecord
+    })
+  },
+  sendMore: function () {
+    this.setData({
+      sendMoreMsg: !this.data.sendMoreMsg
+    })
+  },
+  /**
+   * 获取输入的内容
+   */
+  bindKeyboardInput:function(e){
+    this.data.keyboardInputValue = getInputValue(e);
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 开始录音
    */
-  onLoad: function (options) {
-
+  startRecord(){
+    console.log('recoding...')
+    this.setData({
+      recordingClass:'recoding'
+    });
+    const recorderManager = wx.getRecorderManager()
+    recorderManager.onStart(() => {
+      console.log('recorder start')
+    })
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 结束录音
    */
-  onReady: function () {
-
+  endRecord(){
+    console.log('end recoding...');
+    this.setData({
+      recordingClass:''
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  test(){
+    let authorizeUtil = new AuthorizeUtil('camera');
+    authorizeUtil.authorize()
+      .then(res=>{
+        console.log('=====',res)
+      })
+      .catch(e=>{
+        console.log(e);
+      })
   }
 })

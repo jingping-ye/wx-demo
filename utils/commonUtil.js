@@ -63,20 +63,7 @@ function showSuccess(text, config) {
   });
 }
 
-/**
- * 显示确认栏，无取消按钮
- * @param {string} title 确认栏标题
- * @param {string} content 确认栏内容
- */
-function showConfirm(title, content, config) {
-  wx.hideToast();
-  wx.showModal({
-    title: title,
-    content: JSON.stringify(content),
-    showCancel: false,
-    ...config
-  });
-}
+
 
 /**
  * 判断是否是11位有效手机号
@@ -115,13 +102,19 @@ function previewImage(index, urls) {
   });
 }
 
+/**
+ * 获取input输入框的内容
+ */
+function getInputValue(e){
+  return e.detail.value;
+}
 export {
   timeStampToTime,
   timeToTimeStamp,
   showLoading,
   showSuccess,
-  showConfirm,
   isValidPhone,
   isArray,
-  previewImage
+  previewImage,
+  getInputValue
 };

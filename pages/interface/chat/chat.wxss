@@ -1,1 +1,100 @@
-/* pages/interface/chat/chat.wxss */
+.content-box{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 100rpx;
+  overflow-y: auto;
+  -webkit-overflow-scrolling:touch;
+}
+.send-box{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #eae8e8;
+  min-height: 100rpx;
+  border-top:1px solid #d5d5d5;
+}
+.send-box .input-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20rpx 10rpx;
+}
+.send-box .input-box image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.send-box .input-box .input-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.send-box .input-box .input-item input{
+  border: 1px solid #d5d5d5;
+  background-color: #fff;
+  border-radius: 5rpx;
+  font-size: 24rpx;
+  color:#838383;
+  padding:0 10rpx;
+  height: 70rpx;
+  width: 436rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+.send-box .input-box .send-btn{
+  width:120rpx;
+  height: 60rpx;
+  background-color: #4a6141;
+  border-radius: 5rpx;
+  color:#fff;
+  font-size: 24rpx;
+  line-height: 60rpx;
+  text-align: center;
+  margin-left: 10rpx;
+}
+.hidden{
+  display: none;
+}
+.input-item .speak-input{
+  text-align: center;
+  color: #212121;
+}
+
+.recoding{
+  background: #ccc !important;
+}
+
+/** 发送更多 **/
+.send-box .send-more-box{
+  display: flex;
+  flex-direction: row;
+  margin:20rpx 35rpx  35rpx;
+}
+.send-box .send-more-box .choose-type{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 35rpx;
+}
+.send-box .send-more-box .choose-type .image-box{
+  width:120rpx;
+  height: 120rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  border:1px solid #d5d5d5;
+  display: flex;
+  justify-content:center;
+  align-items:Center;
+  margin-bottom: 10rpx;
+}
+.send-box .send-more-box .choose-type .image-box image{
+  width:60rpx;
+  height: 60rpx;
+}
+.send-box .send-more-box .choose-type text{
+  font-size: 24rpx;
+  color: #666;
+}

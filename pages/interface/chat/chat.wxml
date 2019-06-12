@@ -1,14 +1,31 @@
- <view class="chat">
-  <view class="content-box">
-
+<view class='content-box'>
+  <button catchtap='test'>测试</button>
+</view>
+<view class='send-box'>
+<view class='input-box'>
+  <view class="{{onRecord?'input-item':'hidden'}}">
+    <image src='/assets/icon/chat/voice.png' catchtap='swithInputType'></image>
+    <input type="text" placeholder='说点什么吧....' value="{{keyboardInputValue}}" bindinput="bindKeyboardInput" confirm-type="done"></input>
   </view>
-  <view class="input-box">
-    <view class="send-msg-box">
-      <view hidden="{{useKeyBoard}}" class="voice-input">12</view>
-      <view hidden="{{!useKeyBoard}}" class="word-input">123</view>
-      <image></image>
-      <view class='send-button'>发送</view>
+  <view  class="{{!onRecord?'input-item':'hidden'}}">
+    <image src='/assets/icon/chat/keyboard.png' catchtap='swithInputType'></image>
+    <input value='按住 说话' disabled='disabled' class="speak-input {{recordingClass}}" catchtouchstart='startRecord' catchtouchend='endRecord'></input>
+  </view>
+  <image src='/assets/icon/chat/add.png' catchtap='sendMore'></image>
+  <view class='send-btn'>发送</view>
+</view>
+<view class="{{sendMoreMsg?'send-more-box':'hidden'}}">
+  <view class='choose-type'>
+    <view class="image-box">
+        <image src='/assets/icon/chat/picture.png'></image>
     </view>
-    <view class='send-more-box'></view>
+    <text>照片</text>
   </view>
+  <view class='choose-type'>
+    <view class="image-box">
+        <image src='/assets/icon/chat/camera.png'></image>
+    </view>
+    <text>拍照</text>
+  </view>
+</view>
 </view>
